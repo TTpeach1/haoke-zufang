@@ -51,8 +51,21 @@ export default {
       this.$router.back()
     },
     async login() {
-      const res = await login(this.username, this.password)
-      console.log(res)
+      try {
+        const res = await login(this.username, this.password)
+        console.log(res)
+        if (res.data.status === 200) {
+          this.$store.commit('setUser', res.data.body)
+          this.$router.push('/layout/my')
+          this.$toast.success('登录成功')
+        } else {
+          this.username = ''
+          this.password = ''
+          this.$toast.fail('账号密码错误')
+        }
+      } catch (e) {
+        console.log('登陆失败')
+      }
     }
   }
 }
