@@ -1,13 +1,12 @@
 <template>
   <div>
-    <!-- 一级路由路由 -->
-    <router-view></router-view>
+    <h1>首页</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HaokeZufangApp',
+  name: 'HaokeZufangIndex',
 
   data() {
     return {}
@@ -19,4 +18,4 @@ export default {
 }
 </script>
 
-<style lang="less" scoped></style>
+<style lang="scss" scoped></style>
