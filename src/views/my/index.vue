@@ -92,7 +92,6 @@
 </template>
 
 <script>
-import { myCollectionApi } from '@/api/user'
 export default {
   name: 'HaokeZufangIndex',
 
@@ -114,14 +113,9 @@ export default {
     },
     async favorite() {
       // console.log(this)
-      const res = await myCollectionApi()
-      console.log(res)
-      this.$router.push({
-        path: '/myCollection',
-        query: {
-          collec: res.data.body
-        }
-      })
+      // const res = await myCollectionApi()
+      // console.log(res)
+      this.$router.push('/myCollection')
     }
   }
 }

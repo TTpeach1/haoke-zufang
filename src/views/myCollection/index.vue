@@ -8,19 +8,22 @@
     />
 
     <van-card
-      price="2.00"
-      desc="描述信息"
-      title="描述信息"
-      thumb="https://img01.yzcdn.cn/vant/ipad.jpeg"
+      v-for="item in list"
+      :key="item.houseCode"
+      :price="item.price"
+      :desc="item.desc"
+      :title="item.title"
+      :thumb="item.houseImg"
     >
       <template #tags>
-        <van-tag plain type="danger">标签</van-tag>
+        <van-tag plain type="danger">{{item.tags[0]}}</van-tag>
       </template>
     </van-card>
   </div>
 </template>
 
 <script>
+import { myCollectionApi } from '@/api/user'
 export default {
   name: 'HaokeZufangIndex',
 
@@ -29,11 +32,12 @@ export default {
       list: []
     }
   },
-
-  mounted() {
-    const list = this.$route.query.collec
-    console.log(list)
+  async created() {
+    const res = await myCollectionApi()
+    console.log(res)
+    this.list = res.data.body
   },
+  mounted() {},
 
   methods: {
     toBack() {
