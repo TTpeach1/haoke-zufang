@@ -7,3 +7,9 @@ export const login = (username, password) => {
     data: { username, password }
   })
 }
+export const myCollectionApi = () => {
+  return request({
+    url: '/user/favorites',
+    method: 'GET'
+  })
+}

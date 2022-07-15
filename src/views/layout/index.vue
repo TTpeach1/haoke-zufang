@@ -1,7 +1,7 @@
 <template>
   <div>
     <router-view></router-view>
-    <van-tabbar v-model="active">
+    <van-tabbar route>
       <van-tabbar-item to='/layout/home' icon="home-o">首页</van-tabbar-item>
       <van-tabbar-item to='/layout/find' icon="search">找房</van-tabbar-item>
       <van-tabbar-item to='/layout/news' icon="newspaper-o">咨询</van-tabbar-item>

@@ -7,6 +7,7 @@ import Find from '@/views/find'
 import My from '@/views/my'
 import News from '@/views/news'
 import Home from '@/views/home'
+import MyCollection from '@/views/myCollection'
 
 Vue.use(VueRouter)
 
@@ -18,6 +19,10 @@ const routes = [
   {
     path: '/login',
     component: Login
+  },
+  {
+    path: '/myCollection',
+    component: MyCollection
   },
   {
     path: '/layout',
