@@ -2,7 +2,7 @@
   <div>
     <van-nav-bar
       class="navbar"
-      title="收藏列表"
+      title="房屋管理"
       left-arrow
       @click-left="toBack"
     />
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { myCollectionApi } from '@/api/user'
+import { myHomeApi } from '@/api/user'
 export default {
   name: 'HaokeZufangIndex',
 
@@ -32,7 +32,7 @@ export default {
     }
   },
   async created() {
-    const res = await myCollectionApi()
+    const res = await myHomeApi()
     console.log(res)
     this.list = res.data.body
   },

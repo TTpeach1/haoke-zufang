@@ -27,7 +27,7 @@
         <div class="my-contents">
           <van-grid :column-num="3">
             <van-grid-item icon="star-o" text="我的收藏" @click="favorite" />
-            <van-grid-item icon="wap-home-o" text="我的出租" />
+            <van-grid-item icon="wap-home-o" text="我的出租" @click="myhome" />
             <van-grid-item icon="clock-o" text="看房记录" />
             <van-grid-item icon="vip-card-o" text="成为房主" />
             <van-grid-item icon="user-o" text="个人资料" />
@@ -92,7 +92,7 @@
 </template>
 
 <script>
-import { myCollectionApi } from '@/api/user'
+// import { myCollectionApi } from '@/api/user'
 export default {
   name: 'HaokeZufangIndex',
 
@@ -112,16 +112,15 @@ export default {
     api() {
       this.$router.push('/login')
     },
-    async favorite() {
+    favorite() {
       // console.log(this)
-      const res = await myCollectionApi()
-      console.log(res)
-      this.$router.push({
-        path: '/myCollection',
-        query: {
-          collec: res.data.body
-        }
-      })
+      // const res = await myCollectionApi()
+      // console.log(res)
+      this.$router.push('/mycollection')
+    },
+    myhome() {
+      console.log(111)
+      this.$router.push('/myhome')
     }
   }
 }

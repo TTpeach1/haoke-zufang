@@ -13,3 +13,9 @@ export const myCollectionApi = () => {
     method: 'GET'
   })
 }
+export const myHomeApi = () => {
+  return request({
+    url: '/user/houses',
+    method: 'GET'
+  })
+}

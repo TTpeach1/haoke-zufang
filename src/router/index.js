@@ -8,6 +8,8 @@ import My from '@/views/my'
 import News from '@/views/news'
 import Home from '@/views/home'
 import MyCollection from '@/views/myCollection'
+import MyHome from '@/views/myHome'
+import City from '@/views/city'
 
 Vue.use(VueRouter)
 
@@ -21,8 +23,16 @@ const routes = [
     component: Login
   },
   {
-    path: '/myCollection',
+    path: '/myhome',
+    component: MyHome
+  },
+  {
+    path: '/mycollection',
     component: MyCollection
+  },
+  {
+    path: '/city',
+    component: City
   },
   {
     path: '/layout',
