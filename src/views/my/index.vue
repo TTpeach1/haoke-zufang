@@ -92,7 +92,10 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 // import { myCollectionApi } from '@/api/user'
+=======
+>>>>>>> 4622d971929ae7d7677c7bcdc850496f68e34acd
 export default {
   name: 'HaokeZufangIndex',
 
@@ -116,11 +119,15 @@ export default {
       // console.log(this)
       // const res = await myCollectionApi()
       // console.log(res)
+<<<<<<< HEAD
       this.$router.push('/mycollection')
     },
     myhome() {
       console.log(111)
       this.$router.push('/myhome')
+=======
+      this.$router.push('/myCollection')
+>>>>>>> 4622d971929ae7d7677c7bcdc850496f68e34acd
     }
   }
 }
