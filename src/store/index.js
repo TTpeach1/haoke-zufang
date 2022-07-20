@@ -11,7 +11,8 @@ export default new Vuex.Store({
     // user: null
     // user: JSON.parse(window.localStorage.getItem(TOKEN_KEY))
     // user: storage.get(TOKEN_KEY) || {}
-    user: getToken() || {}
+    user: getToken() || {},
+    name: ''
   },
   mutations: {
     setUser(state, data) {
@@ -20,6 +21,9 @@ export default new Vuex.Store({
       // window.localStorage.setItem(TOKEN_KEY, JSON.stringify(state.user))
       // storage.set(TOKEN_KEY, data)
       setToken(data)
+    },
+    cunName(state, data) {
+      state.name = data
     }
   },
   actions: {},

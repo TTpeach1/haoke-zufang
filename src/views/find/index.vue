@@ -2,15 +2,22 @@
   <div>
     <!-- 头部 -->
     <div class="head">
-      <span class="iconfont icon-xiangzuojiantou"></span>
+      <span class="iconfont icon-xiangzuojiantou" @click="toHome"></span>
       <div class="center">
-        <button class="btn" @click="cityBtn">北京</button>
+        <button class="btn" @click="cityBtn">{{ Name ? Name : '北京' }}</button>
         <span class="iconfont icon-xiajiantou xia"></span>
         <span class="iconfont icon-sousuo sou"></span>
         <input class="right" type="text" placeholder="请输入小区或地址" />
       </div>
       <span class="iconfont icon-ditu"></span>
     </div>
+
+    <!-- 轮播 -->
+    <!-- <van-swipe :autoplay="3000">
+      <van-swipe-item v-for="(item, index) in images" :key="index">
+        <img class="image" :src="`http://liufusong.top:8080${item.imgSrc}`" />
+      </van-swipe-item>
+    </van-swipe> -->
     <!-- <van-dropdown-menu>
       <van-dropdown-item v-model="value1" :options="option1" />
     </van-dropdown-menu> -->
@@ -18,6 +25,7 @@
 </template>
 
 <script>
+// import { getImgApi } from '@/api'
 export default {
   name: 'HaokeZufangIndex',
 
@@ -25,11 +33,18 @@ export default {
     return {
       value: '',
       value1: '区域'
+      // images: []
     }
   },
-
+  created() {
+    this.getImg()
+  },
   mounted() {},
-
+  computed: {
+    Name() {
+      return this.$store.state.name
+    }
+  },
   methods: {
     toBack() {
       this.$router.back()
@@ -40,13 +55,25 @@ export default {
     cityBtn() {
       console.log(123)
       this.$router.push('/city')
+    },
+    toHome() {
+      this.$router.push('/layout/home')
     }
+    // async getImg() {
+    //   const res = await getImgApi()
+    //   console.log(res)
+    //   this.images = res.data.body
+    //   console.log(this.images)
+    // }
   }
 }
 </script>
 
 <style lang="less" scoped>
 .head {
+  // position: absolute;
+  // top: 30px;
+  // z-index: 99;
   height: 100px;
   display: flex;
   align-items: center;
@@ -89,4 +116,11 @@ export default {
     margin: 0 25px;
   }
 }
+// .van-swipe {
+//   width: 100%;
+//   height: 424px;
+//   .image {
+//     width: 100%;
+//   }
+// }
 </style>

@@ -6,8 +6,15 @@ export const hotCityApi = () => {
   })
 }
 
-export const CityApi = () => {
+export const getCityApi = () => {
   return request({
-    url: '/area/city'
+    url: '/area/city',
+    params: { level: 1 }
+  })
+}
+
+export const getHotCityApi = () => {
+  return request({
+    url: '/area/hot'
   })
 }

@@ -9,6 +9,8 @@ import Vant from 'vant'
 import 'vant/lib/index.css'
 // rem配置
 import 'amfe-flexible'
+// 城市列表拼音
+import pinyin from 'js-pinyin'
 
 Vue.use(Vant)
 Vue.config.productionTip = false
@@ -16,5 +18,6 @@ Vue.config.productionTip = false
 new Vue({
   router,
   store,
+  pinyin,
   render: (h) => h(App)
 }).$mount('#app')
