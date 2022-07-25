@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import { getCityApi, getHotCityApi } from '@/api'
+import { getCityApi, getHotCityApi, getCityIdApi } from '@/api'
 import pinyin from 'js-pinyin'
 // pinyin.setOptions({ checkPolyphone: false, charCase: 0 })
 export default {
@@ -50,6 +50,7 @@ export default {
       city: [],
       firstName: {},
       name: '',
+      cityId: '',
       FirstPin: [
         'A',
         'B',
@@ -132,7 +133,24 @@ export default {
       //   query: { name: name }
       // })
       this.$store.commit('cunName', name)
-      this.$router.back()
+      this.getCityId(name)
+      this.$router.push({
+        path: '/layout/home',
+        query: {
+          id: this.cityId
+        }
+      })
+    },
+    async getCityId(id) {
+      try {
+        // const name = this.$store.state.name
+        // console.log(name)
+        const res = await getCityIdApi(id)
+        console.log(res, id, '城市id')
+        this.cityId = res.data.body.label
+      } catch (error) {
+        console.log(error)
+      }
     }
   }
 }

@@ -10,6 +10,7 @@ import Home from '@/views/home'
 import MyCollection from '@/views/myCollection'
 import MyHome from '@/views/myHome'
 import City from '@/views/city'
+import ToRent from '@/views/toRent'
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,10 @@ const routes = [
   {
     path: '/city',
     component: City
+  },
+  {
+    path: '/torent',
+    component: ToRent
   },
   {
     path: '/layout',

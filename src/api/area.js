@@ -18,3 +18,13 @@ export const getHotCityApi = () => {
     url: '/area/hot'
   })
 }
+/**
+ *
+ * @param {*} name
+ * @returns 获取城市对应id
+ */
+export const getCityIdApi = (name) => {
+  return request({
+    url: `/area/info?name=${name}`
+  })
+}
