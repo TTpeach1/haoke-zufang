@@ -7,6 +7,7 @@
       @click-left="toBack"
     />
     <van-card
+      @click="toContent(item.houseCode)"
       v-for="item in list"
       :key="item.houseCode"
       :price="item.price"
@@ -41,6 +42,14 @@ export default {
   methods: {
     toBack() {
       this.$router.back()
+    },
+    toContent(id) {
+      this.$router.push({
+        path: '/content',
+        query: {
+          id: id
+        }
+      })
     }
   }
 }

@@ -87,7 +87,8 @@ export default {
       return this.$store.state.name
     },
     nameId() {
-      return this.$route.query.id
+      // return this.$route.query.id
+      return this.$store.state.id
     }
   },
   methods: {

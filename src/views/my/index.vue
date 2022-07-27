@@ -121,7 +121,7 @@ export default {
     myhome() {
       console.log(111)
       this.$router.push('/myhome')
-      this.$router.push('/myCollection')
+      // this.$router.push('/myCollection')
     }
   }
 }

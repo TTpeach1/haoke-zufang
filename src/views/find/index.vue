@@ -11,6 +11,28 @@
       </div>
       <span class="iconfont icon-ditu"></span>
     </div>
+    <div class="main">
+      <van-tabs v-model="active">
+        <van-tab title="区域">内容 1</van-tab>
+        <van-tab title="方式">内容 2</van-tab>
+        <van-tab title="租金" class="three">
+          <!-- @click="toContent(item.houseCode)" -->
+          <van-card
+            v-for="item in list"
+            :key="item.houseCode"
+            :price="item.price"
+            :desc="item.desc"
+            :title="item.title"
+            :thumb="`http://liufusong.top:8080${item.houseImg}`"
+          >
+            <template #tags>
+              <van-tag plain type="danger">{{ item.tags[0] }}</van-tag>
+            </template>
+          </van-card>
+        </van-tab>
+        <van-tab title="筛选">内容 4</van-tab>
+      </van-tabs>
+    </div>
 
     <!-- 轮播 -->
     <!-- <van-swipe :autoplay="3000">
@@ -26,20 +48,25 @@
 
 <script>
 // import { getImgApi } from '@/api'
+import { getCityValApi } from '@/api'
 export default {
   name: 'HaokeZufangIndex',
 
   data() {
     return {
       value: '',
-      value1: '区域'
+      value1: '区域',
+      active: 2,
+      list: []
       // images: []
     }
   },
   created() {
-    this.getImg()
+    // this.getImg()
   },
-  mounted() {},
+  mounted() {
+    this.getCityVal()
+  },
   computed: {
     Name() {
       return this.$store.state.name
@@ -58,6 +85,15 @@ export default {
     },
     toHome() {
       this.$router.push('/layout/home')
+    },
+    async getCityVal() {
+      try {
+        const res = await getCityValApi(this.$store.state.id)
+        console.log(res, '根据城市查询')
+        this.list = res.data.body.list
+      } catch (error) {
+        console.log(error)
+      }
     }
     // async getImg() {
     //   const res = await getImgApi()
@@ -123,4 +159,26 @@ export default {
 //     width: 100%;
 //   }
 // }
+.main {
+  .three {
+    .navbar {
+      background-color: #21b97a;
+      :deep(.van-nav-bar__title) {
+        color: #fff;
+        font-size: 36px;
+      }
+      :deep(.van-nav-bar__arrow) {
+        color: #fff;
+      }
+    }
+    .goods-card {
+      margin: 0;
+      background-color: #fff;
+    }
+
+    .delete-button {
+      height: 100%;
+    }
+  }
+}
 </style>

@@ -134,12 +134,14 @@ export default {
       // })
       this.$store.commit('cunName', name)
       this.getCityId(name)
-      this.$router.push({
-        path: '/layout/home',
-        query: {
-          id: this.cityId
-        }
-      })
+      this.$store.commit('cunId', this.cityId)
+      this.$router.back()
+      // this.$router.push({
+      //   path: '/layout/home',
+      //   query: {
+      //     id: this.cityId
+      //   }
+      // })
     },
     async getCityId(id) {
       try {

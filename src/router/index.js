@@ -32,6 +32,10 @@ const routes = [
     component: MyCollection
   },
   {
+    path: '/content',
+    component: () => import('@/views/content')
+  },
+  {
     path: '/city',
     component: City
   },
